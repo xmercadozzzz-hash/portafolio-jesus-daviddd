@@ -1,4 +1,30 @@
-Terminal 1: npm run api      (API en http://localhost:3000/api, guarda en mock-api/datos.json)
-Terminal 2: npm run dev      (web en http://localhost:5173)
-Admin: /admin/login  ->  admin@demo.com / 123456
-Primera vez: npm install  y  cp .env.example .env
+# Portafolio · Jesús David Mercado
+
+Portafolio en React (Vite) con panel administrativo para gestionar experiencias profesionales (CRUD).
+
+## Cómo ejecutarlo
+
+Primera vez:
+```
+npm install
+copy .env.example .env
+```
+
+Terminal 1 (API):
+```
+npm run api
+```
+
+Terminal 2 (web):
+```
+npm run dev
+```
+
+La web queda en http://localhost:5173
+
+## Acceso al panel admin
+
+Ruta: `/admin/login`
+
+- Correo: `admin@demo.com`
+- Contraseña: `123456`
