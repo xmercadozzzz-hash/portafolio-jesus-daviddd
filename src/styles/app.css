@@ -1,0 +1,128 @@
+/* Extensiones sobre estilos.css original: misma paleta (#0b0f14 / #111720 / #00e5ff) */
+
+:root {
+  --fondo: #0b0f14;
+  --panel: #111720;
+  --borde: #26313d;
+  --acento: #00e5ff;
+  --texto-suave: #b8c2cc;
+  --peligro: #ff6b6b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 3px;
+}
+
+button { font: inherit; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.6; }
+
+/* Navegación: enlace activo */
+.menu a.active { color: var(--acento); border-bottom: 2px solid var(--acento); padding-bottom: 3px; }
+.menu-admin a { color: var(--texto-suave); font-size: 14px; }
+
+/* Texto corrido */
+.parrafo { color: var(--texto-suave); max-width: 72ch; margin-bottom: 18px; }
+.parrafo strong { color: #fff; }
+.resumen > .etiqueta + h2 { margin-top: 0; }
+
+/* Botones (extiende .boton) */
+.boton { border: none; font-size: 16px; }
+.boton-sec { background: transparent; color: var(--acento); border: 1px solid var(--acento); }
+.boton-peligro { background: var(--peligro); color: #0b0f14; }
+.boton-sm { padding: 7px 16px; font-size: 14px; }
+
+/* Estados */
+.estado { color: var(--texto-suave); padding: 18px 0; }
+.estado-error {
+  color: var(--peligro);
+  border: 1px solid var(--peligro);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+.estado-error .boton { margin-top: 10px; }
+.aviso { min-height: 1.6em; color: var(--acento); margin: 14px 0 6px; }
+
+/* Línea de tiempo pública */
+.linea-tiempo { list-style: none; border-left: 2px solid var(--borde); margin-left: 6px; }
+.exp { position: relative; padding: 0 0 34px 28px; max-width: 760px; }
+.exp::before {
+  content: '';
+  position: absolute;
+  left: -7px; top: 6px;
+  width: 12px; height: 12px;
+  background: var(--fondo);
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+}
+.exp h3 { color: #fff; margin: 2px 0; }
+.exp-fechas { color: var(--acento); font-size: 14px; }
+.exp-empresa { color: var(--texto-suave); font-weight: bold; margin-bottom: 8px; }
+.exp-desc { color: var(--texto-suave); white-space: pre-line; }
+
+/* Admin */
+.barra-admin { display: flex; flex-wrap: wrap; gap: 12px; }
+.lista-admin { list-style: none; display: grid; gap: 14px; margin-top: 14px; }
+.fila-exp {
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  background: var(--panel); border: 1px solid var(--borde); border-radius: 8px;
+  padding: 18px 22px;
+}
+.fila-info h3 { color: #fff; margin-bottom: 2px; }
+.fila-info .exp-empresa { margin-bottom: 2px; }
+.fila-acciones { display: flex; gap: 10px; flex-shrink: 0; }
+
+/* Formularios */
+.formulario { display: grid; gap: 16px; }
+.formulario-login { max-width: 420px; }
+.formulario label { display: grid; gap: 6px; color: var(--texto-suave); font-size: 14px; }
+.formulario input[type='text'],
+.formulario input[type='email'],
+.formulario input[type='password'],
+.formulario input[type='date'],
+.formulario textarea {
+  width: 100%;
+  background: var(--fondo);
+  color: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 5px;
+  padding: 10px 12px;
+  font: inherit;
+  color-scheme: dark;
+}
+.formulario input:disabled { opacity: 0.45; }
+.formulario textarea { resize: vertical; }
+.formulario .con-error input,
+.formulario .con-error textarea { border-color: var(--peligro); }
+.msg-error { color: var(--peligro); font-size: 13px; }
+.formulario .check { display: flex; align-items: center; gap: 10px; }
+.fila-doble { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.acciones { display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+/* Modal (<dialog>) */
+.modal {
+  margin: auto;
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  background: var(--panel);
+  color: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  padding: 0;
+}
+.modal::backdrop { background: rgba(0, 0, 0, 0.72); }
+.modal-cuerpo { padding: 26px; }
+.modal-cuerpo h3 { color: var(--acento); margin-bottom: 18px; }
+
+@media (max-width: 768px) {
+  .fila-exp { flex-direction: column; align-items: flex-start; }
+  .fila-doble { grid-template-columns: 1fr; }
+  .acciones { justify-content: stretch; }
+  .acciones .boton { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
